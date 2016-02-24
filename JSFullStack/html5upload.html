@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript">
+        function uploadFileFunction(){
+            var fileObj = document.getElementById("uploadFile").files[0];
+            var fileController = "upload.php";
+
+            var formdata = new FormData();
+            formdata.append("type","html5");
+            formdata.append("file",fileObj);
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("post",fileController,true);
+            xhr.upload.addEventListener("progress",progressFunction,true);
+            xhr.send(formdata);
+        }
+
+        function progressFunction(evt){
+            var progressBar = document.getElementById("uploadProgressBar");
+            var percentDiv = document.getElementById("percentage");
+            if(evt.lengthComputable){
+                progressBar.max = evt.total;
+                progressBar.value = evt.loaded;
+                percentDiv.innerHTML = Math.round(evt.loaded / evt.total*100) + "%";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="infoMsg">上传进度</div>
+    <progress id="uploadProgressBar" value="0" max="100"></progress>
+    <span id="percentage"></span>
+    <br />
+    <input type="file" id="uploadFile"/>
+    <input type="button" id="uploadBtn" value="上传" onclick="uploadFileFunction()"/>
+</body>
+</html>
