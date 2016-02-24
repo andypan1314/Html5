@@ -1,8 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cn">
 <head>
     <meta charset="UTF-8">
-    <scrip
+    <script type="text/javascript">
+        function dateFunc(){
+            var time = new Date();
+            var t = time.getFullYear()+ "/"+ time.getMonth() + "/" + time.getDate()+ " " +time.getHours()+ ":"+ time.getMinutes();
+//            var newt = `${time.getFullYear()}/${time.getMonth()}/${time.getDate()} ${time.getHours()}:${time.getMinutes()}`;
+            document.writeln(t);
+//            document.writeln(newt);
+        }
+//        dateFunc();
+
+
+        function replaceDemo(){
+            var s = '1  2 fd ewr   tretw       end';
+            var r = '/\s+/g';
+            s = s.replace(r,' ');
+            document.write(s);
+        }
+        replaceDemo();
+    </script>
+
+
+
     <title>js01</title>
 </head>
 <body>
