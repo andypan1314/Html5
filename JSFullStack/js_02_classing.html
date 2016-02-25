@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <h1 id="h1">h1111</h1>
+    <script>
+        var headTitle = document.getElementById("h1");
+        var a = document.createElement("a");
+                text = document.createTextNode('京东');
+        a.appendChild(text);
+        headTitle.appendChild(a);
+
+        headTitle.onclick = function(e){
+            var event = e || window.event;
+            event.stopPropagation();
+            event.cancelBubble = true;
+            alert('aaaa');
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
